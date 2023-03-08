@@ -1,4 +1,4 @@
-package com.example.firstdemo
+package com.example.firstdemo.user
 
 class User(
     val id: Int,
