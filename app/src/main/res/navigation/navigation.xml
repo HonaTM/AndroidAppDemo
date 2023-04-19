@@ -13,9 +13,24 @@
         <action
             android:id="@+id/action_mainFragment_to_userActivity"
             app:destination="@id/userActivity" />
+        <action
+            android:id="@+id/action_mainFragment_to_toDoDetailFragment"
+            app:destination="@id/toDoDetailFragment" />
     </fragment>
     <activity
         android:id="@+id/userActivity"
         android:name="com.example.firstdemo.user.UserActivity"
-        android:label="UserActivity" />
+        android:label="UserActivity" >
+        <argument android:name="user"
+            app:argType="com.example.firstdemo.user.User" />
+    </activity>
+    <fragment
+        android:id="@+id/toDoDetailFragment"
+        android:name="com.example.firstdemo.todo.ToDoDetailFragment"
+        android:label="fragment_to_do_detail"
+        tools:layout="@layout/fragment_to_do_detail" >
+        <argument
+            android:name="toDo"
+            app:argType="com.example.firstdemo.todo.ToDo" />
+    </fragment>
 </navigation>

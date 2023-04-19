@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <import type="android.view.View"/>
+        <import type="android.text.TextUtils"/>
+        <variable
+            name="viewModel"
+            type="com.example.firstdemo.todo.ToDoDetailViewModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".todo.ToDoDetailFragment">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="30dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@mipmap/ic_launcher"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/toDoNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:text="@{@string/ToDoNum(viewModel.toDo.number)}"
+            android:textSize="35sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            app:layout_constraintTop_toTopOf="@+id/imageView2" />
+
+        <TextView
+            android:id="@+id/toDoStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.toDoStatus}"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView2" />
+
+        <TextView
+            android:id="@+id/toDoHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="30dp"
+            android:text="@{viewModel.toDo.title}"
+            android:textSize="25sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+        <TextView
+            android:id="@+id/toDoDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:text="@{viewModel.toDo.description}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toDoHeader" />
+
+        <TextView
+            android:id="@+id/toDoCreatedBy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="50dp"
+            android:text="@{@string/ToDoCreator(viewModel.toDo.createdByUser.firstName, viewModel.toDo.createdByUser.lastName)}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toDoDescription" />
+
+        <TextView
+            android:id="@+id/toDoCreationDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:text="@{viewModel.createdDateString}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toDoCreatedBy" />
+
+        <TextView
+            android:id="@+id/toDoAssignedTo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="50dp"
+            android:text="@{@string/ToDoAssign(viewModel.toDo.assignedToUser.firstName, viewModel.toDo.assignedToUser.lastName)}"
+            android:visibility="@{TextUtils.isEmpty(viewModel.toDo.assignedToUser.firstName)? View.GONE : View.VISIBLE}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toDoCreationDate" />
+
+        <TextView
+            android:id="@+id/toDoCompleteDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:text="@{@string/ToDoCompl(viewModel.completedDateString)}"
+            android:visibility="@{TextUtils.isEmpty(viewModel.completedDateString)? View.GONE : View.VISIBLE}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toDoAssignedTo" />
+
+        <TextView
+            android:id="@+id/toDoTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:text="@{@string/ToDoTime(viewModel.toDoTimeString)}"
+            android:visibility="@{TextUtils.isEmpty(viewModel.toDoTimeString)? View.GONE : View.VISIBLE}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toDoCompleteDate" />
+
+        <TextView
+            android:id="@+id/toDoRemark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:text="@{viewModel.toDo.remark}"
+            android:visibility="@{TextUtils.isEmpty(viewModel.toDo.remark)? View.GONE : View.VISIBLE}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toDoTime" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
