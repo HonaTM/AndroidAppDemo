@@ -46,4 +46,24 @@ class MainFragmentViewModel: ViewModel() {
         _navigateToToDoFragment.value = false
     }
 
+    //ToDo_list nav
+    private var _navigateToToDoListFragment = MutableLiveData<Boolean>()
+    val navigateToToDoListFragment : LiveData<Boolean>
+
+        get() {
+            return _navigateToToDoListFragment
+        }
+
+    init {
+        _navigateToToDoListFragment.value = false
+    }
+
+    fun navigateToToDoListFragmentButtonClicked() {
+        _navigateToToDoListFragment.value = true
+    }
+
+    fun navigateToToDoListFinished() {
+        _navigateToToDoListFragment.value = false
+    }
+
 }

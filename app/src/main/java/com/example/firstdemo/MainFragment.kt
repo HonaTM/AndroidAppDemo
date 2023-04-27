@@ -49,6 +49,13 @@ class MainFragment : Fragment() {
             }
         })
 
+        viewModel.navigateToToDoListFragment.observe(viewLifecycleOwner, Observer {
+            if (it) {
+                findNavController().navigate(MainFragmentDirections.actionMainFragmentToToDoListFragment())
+                viewModel.navigateToToDoListFinished()
+            }
+        })
+
         return binding.root
     }
 

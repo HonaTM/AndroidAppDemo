@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="toDo"
+            type="com.example.firstdemo.todo.ToDo"/>
+        <variable
+            name="clickListener"
+            type="com.example.firstdemo.toDoList.ToDoClickListener"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/layout_border"
+        android:onClick="@{() -> clickListener.onClick(toDo)}">
+
+        <TextView
+            android:id="@+id/toDo_number"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:text="@{@string/ToDoNum(toDo.number)}"
+            android:textSize="35sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/toDoTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:text="@{toDo.title}"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/toDo_number"
+            app:layout_constraintTop_toTopOf="@+id/toDo_number" />
+
+        <TextView
+            android:id="@+id/toDoLinkedName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:text="@{@string/ToDoCreator(toDo.createdByUser.firstName, toDo.createdByUser.lastName)}"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/toDo_number"
+            app:layout_constraintStart_toEndOf="@+id/toDo_number" />
+
+        <TextView
+            android:id="@+id/toDo_Status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:textColor="#009688"
+            android:textSize="16sp"
+            app:statusText="@{toDo}"
+            app:layout_constraintBottom_toBottomOf="@+id/toDo_number"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

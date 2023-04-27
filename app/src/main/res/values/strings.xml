@@ -12,4 +12,5 @@
     <string name="ToDoCompl">Completed: %s</string>
     <string name="ToDoTime">Time: %s</string>
     <string name="change_password">Change password</string>
+    <string name="to_do_list">To Do List</string>
 </resources>
