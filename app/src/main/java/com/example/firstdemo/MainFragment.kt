@@ -20,9 +20,9 @@ class MainFragment : Fragment() {
     private lateinit var binding : FragmentMainBinding
 
     private val viewModel: MainFragmentViewModel by viewModels()
-    private val user = User(1, "***REMOVED***", "***REMOVED***", "1234", true)
+    private val user = User(1, "Hona", "Test", "1234", true)
 
-    private val user2 = User(2, "***REMOVED***", "***REMOVED***", "1234", true)
+    private val user2 = User(2, "Second", "Test", "1234", true)
     private val toDo = ToDo(1, "First test", "Hi! This is test", user, LocalDate.of(2023, 3, 19), user2, LocalDate.of(2023, 4, 19), 150L, "None")
 
 

@@ -25,8 +25,8 @@ class ToDoListFragment : Fragment() {
 
     private lateinit var binding: FragmentToDoListBinding
 
-    private val user = User(1, "***REMOVED***", "***REMOVED***", "1234", true)
-    private val user2 = User(2, "***REMOVED***", "***REMOVED***", "1234", true)
+    private val user = User(1, "Hona", "Test", "1234", true)
+    private val user2 = User(2, "Second", "Test", "1234", true)
     private val toDo1 = ToDo(1, "First test", "Hi! This is a test", user, LocalDate.of(2023, 3, 19), user2, LocalDate.of(2023, 4, 19), 150L, "None")
     private val toDo2 = ToDo(2, "Second test", "Hi! This is a test", user, LocalDate.of(2023, 3, 19), user2, LocalDate.of(2023, 4, 19), 150L, "None")
     private val toDo3 = ToDo(3, "Third test", "Hi! This is a test", user, LocalDate.of(2023, 3, 19), user2, null, 150L, "None")
